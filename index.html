@@ -90,9 +90,12 @@
         }
 
         function log(initial_prompt, prompt, image) {
-            $(".log").prepend('<div class="log-entry"><p><b>Initial Prompt: </b>' + initial_prompt + '</p><p><b>Prompt: </b>' + prompt + '</p>' + '<button class="btn btn-primary mb-2" id="btn-expand-image'+counter+'">Expand Image</button>' + '<div id="image'+counter+'" style="display: none;"><img src="data:image/png;base64, ' + image + '"></div></div>');
-            $("#btn-expand-image"+counter).click(function() {
-                $("#image"+counter).toggle();
+            console.log(counter);
+            $(".log").prepend('<div class="log-entry"><p><b>Initial Prompt: </b>' + initial_prompt + '</p><p><b>Prompt: </b>' + prompt + '</p>' + '<button class="btn btn-primary mb-2" id="btn-expand-image'+counter.toString()+'" data-nr="'+counter.toString()+'">Expand Image</button>' + '<div id="image'+counter.toString()+'" style="display: none;"><img src="data:image/png;base64, ' + image + '"></div></div>');
+            $("#btn-expand-image"+counter.toString()).click(function() {
+                var nr = $(this).data("nr");
+                console.log(nr);
+                $("#image"+nr).toggle();
             });
             counter++;
         }
