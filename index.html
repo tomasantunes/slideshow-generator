@@ -76,8 +76,8 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="config.js"></script>
     <script>
-        var api_key = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
         var counter = 0;
         var interval = null;
         var interval2 = null;
@@ -89,19 +89,19 @@
             });
         }
 
-        function log(prompt, image) {
-            $(".log").prepend('<div class="log-entry"><p><b>Prompt: </b>' + prompt + '</p>' + '<button class="btn btn-primary mb-2" id="btn-expand-image'+counter+'">Expand Image</button>' + '<div id="image'+counter+'" style="display: none;"><img src="data:image/png;base64, ' + image + '"></div></div>');
+        function log(initial_prompt, prompt, image) {
+            $(".log").prepend('<div class="log-entry"><p><b>Initial Prompt: </b>' + initial_prompt + '</p><p><b>Prompt: </b>' + prompt + '</p>' + '<button class="btn btn-primary mb-2" id="btn-expand-image'+counter+'">Expand Image</button>' + '<div id="image'+counter+'" style="display: none;"><img src="data:image/png;base64, ' + image + '"></div></div>');
             $("#btn-expand-image"+counter).click(function() {
                 $("#image"+counter).toggle();
             });
         }
 
-        function logPromptError(prompt) {
-            $(".log").prepend('<div class="log-entry"><p><b>Prompt: </b>' + prompt + '</p>' + '<p><b>Error: </b>There was an error generating the image.</p></div>');
+        function logPromptError(initial_prompt, prompt) {
+            $(".log").prepend('<div class="log-entry"><p><b>Initial Prompt: </b>' + initial_prompt + '</p><p><b>Prompt: </b>' + prompt + '</p>' + '<p><b>Error: </b>There was an error generating the image.</p></div>');
         }
 
-        function logChatError() {
-            $(".log").prepend('<div class="log-entry"><p><b>Error: </b>There was an error generating the prompt.</p></div>');
+        function logChatError(initial_prompt) {
+            $(".log").prepend('<div class="log-entry"><p><b>Initial Prompt: </b>' + initial_prompt + '</p><p><b>Error: </b>There was an error generating the prompt.</p></div>');
         }
 
         function randomChoice(arr) {
@@ -136,6 +136,7 @@
                 "Describe a feeling in two sentences",
                 "Describe a paranormal creature in two sentences",
                 "Describe a random planet in two sentences",
+                "Describe a random planet in two sentences as viewed from space",
                 "Describe a weather condition in two sentences",
                 "Tell me a random toy and specify the brand and model",
                 "Describe a fictional movie poster in two sentences. You can use the following genres: action, adventure, comedy, crime, drama, fantasy, horror, mystery, romance, sci-fi, thriller, western",
@@ -157,7 +158,7 @@
             getAnswer(initial_prompt);
         }
 
-        function getImage(prompt) {
+        function getImage(initial_prompt, prompt) {
             var data = {
                 "prompt": prompt,
                 "n": 1,
@@ -181,11 +182,11 @@
                     console.log(data);
                     var image = data.data[0].b64_json;
                     setImage(image);
-                    log(prompt, image);
+                    log(initial_prompt, prompt, image);
                     $(".loading").hide();
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    logPromptError(prompt);
+                    logPromptError(inital_prompt, prompt);
                     $(".loading").hide();
                 }
             });
@@ -210,11 +211,12 @@
                 xhr.setRequestHeader("Authorization", "Bearer " + api_key);
             },
             success: function (data) {
-                var message = data.choices[0].message.content
-                getImage(message);
+                var message = data.choices[0].message.content;
+                console.log(text);
+                getImage(text, message);
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                logChatError();
+                logChatError(text);
                 $(".loading").hide();
             }
             });
