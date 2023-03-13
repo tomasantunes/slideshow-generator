@@ -39,7 +39,7 @@ var initial_prompts = [
     "Describe a random piece of clothing in two sentences",
     "Describe a random motivational poster in two sentences",
     "Describe a person physically in two sentences",
-    "Describe a person's personality in two sentences",
+    "Pretend you can do anything and describe a person's personality in two sentences",
     "Pretend tha tyou can do anything and write the description of a dream in two sentences",
     "Describe a random piece of jewelry in two sentences",
     "Describe a coreography in two sentences",
