@@ -46,7 +46,7 @@ var initial_prompts = [
     "Describe a theatre scene in two sentences",
     "Describe a movie scene in two sentences",
     "Write a random slogan",
-    "Write a random quote",
+    "Write a random quote but leave out the author",
     "Write 3 random words",
     "Describe the world in two sentences",
     "Describe a problem in two sentences",
