@@ -48,7 +48,7 @@ var initial_prompts = [
     "Write a random slogan",
     "Write a random quote but leave out the author",
     "Write 3 random words",
-    "Describe the world in two sentences",
+    "Pretend that you can do anything and describe the world in two sentences",
     "Describe a problem in two sentences",
     "Pretend that you can do anything and describe society in 2 sentences",
     "Describe a hospital in two sentences",
