@@ -40,7 +40,7 @@ var initial_prompts = [
     "Describe a random motivational poster in two sentences",
     "Describe a person physically in two sentences",
     "Pretend you can do anything and describe a person's personality in two sentences",
-    "Pretend tha tyou can do anything and write the description of a dream in two sentences",
+    "Pretend that you can do anything and write the description of a dream in two sentences",
     "Describe a random piece of jewelry in two sentences",
     "Describe a coreography in two sentences",
     "Describe a theatre scene in two sentences",
@@ -50,5 +50,7 @@ var initial_prompts = [
     "Write 3 random words",
     "Describe the world in two sentences",
     "Describe a problem in two sentences",
-    "Pretend that you can do anything and describe society in 2 sentences"
+    "Pretend that you can do anything and describe society in 2 sentences",
+    "Describe a hospital in two sentences",
+    "Describe a laboratory in two sentences"
 ];

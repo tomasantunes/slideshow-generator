@@ -77,7 +77,6 @@ var art_styles = [
     "Tribal",
     "Sci-fi",
     "Fantasy",
-    "Horror",
     "Gothic",
     "Germany",
     "Spain",
@@ -146,5 +145,8 @@ var art_styles = [
     "Commercial",
     "Advertising",
     "Premium",
-    "Scrappy"
+    "Scrappy",
+    "Vampires",
+    "Zombies",
+    "Disease"
 ];
