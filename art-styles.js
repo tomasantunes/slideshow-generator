@@ -72,7 +72,6 @@ var art_styles = [
     "Depressive",
     "Psychedelic",
     "Optical Illusion",
-    "Mindfuck",
     "Mindbending",
     "Tribal",
     "Sci-fi",
