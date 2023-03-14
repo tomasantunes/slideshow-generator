@@ -147,5 +147,9 @@ var art_styles = [
     "Scrappy",
     "Vampires",
     "Zombies",
-    "Disease"
+    "Disease",
+    "realistic photo",
+    "ultra-detailed",
+    "ray tracing",
+    "unreal engine"
 ];
